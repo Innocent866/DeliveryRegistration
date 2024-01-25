@@ -1,6 +1,9 @@
 import React, { useContext, useState } from 'react'
 // import logo from '../assets/Navlogo.jpg'
 import { Link } from 'react-router-dom'
+import RegisterImage  from '../assets/image container.svg'
+import star from '../assets/star 1.svg'
+import profile from '../assets/BG.svg'
 // import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 // import CartContext from '../context/CartContext';
@@ -44,12 +47,34 @@ const Login = () => {
 
   return (
     <div className='container'>
-        <div className='d-flex justify-content-center align-items-center '>
+        <div className='d-flex justify-content-between gap-5 align-items-center '>
+        <div  style={{backgroundColor:'#4CAF50' , color:'#FFFFFF'}}>
+         <div className="p-5">
+         <img src={RegisterImage} alt="" className="bg-white rounded-5"/>
+         <div className="my-5">
+         <img src={star} alt="" />
+          <img src={star} alt="" />
+          <img src={star} alt="" />
+          <img src={star} alt="" />
+          <img src={star} alt="" />
+         </div>
+          <div className="w-75">
+            <p >"We love SwifDrop! we've been getting and managing orders seamlessly, It's definately a restaurant's dream come true"</p>
+            <div className="d-flex align-items-center">
+            <img src={profile} alt="" />
+            <div>
+            <p> Fiyin Oladejo</p>
+            <p>Founder, Tasty Natives</p>
+            </div>
+            </div>
+          </div>
+         </div>
+        </div>
            <div className=''>
           
           
            <h3>Welcome Back</h3>
-           <p>SwifDrop gives you the blocks and components you need to take your sales to the next level.</p>
+           <p className='w-75'>SwifDrop gives you the blocks and components you need to take your sales to the next level.</p>
           
            <div className='mt-5'>
             <form >

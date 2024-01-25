@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 // import '../Style/EditUsers.css'
-// import Editimg from '../assets/EditUsers/Bitmap.jpg'
-// import signBox from '../assets/EditUsers/Signature box.jpg'
-// import SideNav from './SideNav'
+import RegisterImage  from '../assets/image container.svg'
+import star from '../assets/star 1.svg'
+import profile from '../assets/BG.svg'
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -60,10 +60,32 @@ const Register = () => {
 
   return (
     <div className="container">
-      <div className="d-flex justify-content-center align-items-center">
+      <div className="d-flex justify-content-between gap-5 align-items-center">
+        <div  style={{backgroundColor:'#4CAF50' , color:'#FFFFFF'}}>
+         <div className="p-5">
+         <img src={RegisterImage} alt="" className="bg-white rounded-5"/>
+         <div className="my-5">
+         <img src={star} alt="" />
+          <img src={star} alt="" />
+          <img src={star} alt="" />
+          <img src={star} alt="" />
+          <img src={star} alt="" />
+         </div>
+          <div className="w-75">
+            <p >"We love SwifDrop! we've been getting and managing orders seamlessly, It's definately a restaurant's dream come true"</p>
+            <div className="d-flex align-items-center">
+            <img src={profile} alt="" />
+            <div>
+            <p> Fiyin Oladejo</p>
+            <p>Founder, Tasty Natives</p>
+            </div>
+            </div>
+          </div>
+         </div>
+        </div>
         <div className="m-3">
-          <h4>SingUp</h4>
-          <hr />
+          <h1 className="my-3 text-center">Becaome our partner</h1>
+          
           <form action="">
             <div className="d-flex justify-content-between">
               <div className="my-2 me-1">
