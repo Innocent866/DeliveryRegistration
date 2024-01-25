@@ -74,7 +74,7 @@ const Login = () => {
           
           
            <h3>Welcome Back</h3>
-           <p className='w-75'>SwifDrop gives you the blocks and components you need to take your sales to the next level.</p>
+           <p className='w-75'> SwifDrop gives you the blocks and components you need to take your sales to the next level.</p>
           
            <div className='mt-5'>
             <form >
