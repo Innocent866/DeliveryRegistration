@@ -14,12 +14,12 @@ const App = () => {
        <BrowserRouter>
        <Navbar/>
             <Routes>
-
+            
             <Route path='/' element={<LandingPage/>}/>
 
             <Route path='/forgotpassword' element={<ForgotPassword/>}/>
 
-            <Route path='/admin/reset-password/:resetToken' element={<ResetPassword/>}/>
+            <Route path='/password/:resetToken' element={<ResetPassword/>}/>
 
               <Route path="/Register" element={<Register />} />
 
