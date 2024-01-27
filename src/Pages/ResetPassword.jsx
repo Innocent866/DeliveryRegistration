@@ -6,46 +6,55 @@ import axios from 'axios';
 
 
 const ResetPassword = () => {
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-  const [error, setError] = useState('');
-  const [success, setSuccess] = useState('');
-  const [loading, setLoading] = useState(false);
-  const { resetToken } = useParams();
-  const navigate = useNavigate();
+    const [password,setPassword] = useState('')
+    const [confirmPassword,setConfirmPassword] = useState('')
+    const [error,setError] = useState('');
+    const [success,setSuccess] = useState('');
+    const { resetToken } = useParams();
+    const navigate = useNavigate()
 
-  const resetPasswordHandler = async (e) => {
-    e.preventDefault();
-    setError('');
-    setSuccess('');
-    setLoading(true);
+    const resetPasswordHandler =  async(e)=>{
+        e.preventDefault()
+        const logInData={
+            password
+          }
+          if(password !== confirmPassword){
+            setPassword('');
+            setConfirmPassword('');
+            setTimeout(() => {
+              setError('')
+              
+            }, 5000);
+            return setError("Passwords don't match")
 
-    try {
-      const response = await fetch(`https://swifdropp.onrender.com/api/v1/admin/resetpassword/${resetToken}`, {
-        method: "PUT",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify({ password }),
-      });
+        }
+          try {
+            const data = await fetch(`https://swifdropp.onrender.com/api/v1/admin/resetpassword/${resetToken}`, {
+            method:"PUT",
+            headers:{
+              "Content-type": "application/json",
+            },
+            body: JSON.stringify(logInData)});
+            const response = await data.json()
+            setSuccess(data.data)
+            console.log(response);
+         
+            if(response.success === true){
+            //   toast.success(response.message)
+              navigate('/LogIn')
+            }
+            
+            if(response.success === false){
+      
+              setError(response.message)
+            }
+           
+          } catch (error) {
+            console.log(error);
+            
+          }
 
-      const data = await response.json();
-
-      if (response.ok && data.success) {
-        setSuccess(data.message);
-        navigate('/LogIn');
-      } else {
-        setError(data.message || 'An error occurred');
-      }
-    } catch (error) {
-      setError('An error occurred');
-      console.error(error);
-    } finally {
-      setLoading(false);
     }
-  };
-
-
   return (
     <>
     <main className="container vh-50 d-flex flex-column  my-3  ">
